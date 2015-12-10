@@ -5,7 +5,6 @@ var imagemin = require('gulp-imagemin');
 var rename = require('gulp-rename');
 var sass =  require('gulp-sass');
 var uglify = require('gulp-uglify');
-var gutil = require('gulp-util');
 var watch = require('gulp-watch');
 
 
@@ -18,7 +17,6 @@ var img = ["./src/img/*.png", "./src/img/*.jpg"];
 gulp.task('tjs', function() {
   gulp.src(js)
     .pipe(concat('./main.js'))
-    .pipe(rename('main.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 });
