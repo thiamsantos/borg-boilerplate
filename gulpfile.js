@@ -14,7 +14,7 @@ var components = "./src/sass/**/*.scss";
 var img = ["./src/img/*.png", "./src/img/*.jpg"];
 
 // Javascript task
-gulp.task('tjs', function() {
+gulp.task('js-task', function() {
   gulp.src(js)
     .pipe(concat('./main.js'))
     .pipe(uglify())
@@ -22,7 +22,7 @@ gulp.task('tjs', function() {
 });
 
 // Sass task
-gulp.task('tsass', function() {
+gulp.task('sass-task', function() {
   gulp.src(css)
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(rename('main.css'))
@@ -30,7 +30,7 @@ gulp.task('tsass', function() {
 });
 
 // Images tasks
-gulp.task('timg', function() {
+gulp.task('img-task', function() {
   gulp.src(img)
     .pipe(imagemin({
       progressive: true,
@@ -42,18 +42,18 @@ gulp.task('timg', function() {
 
 // Default task
 gulp.task('default', function() {
-  gulp.run('tjs', 'tsass', 'timg');
+  gulp.run('js-task', 'sass-task', 'img-task');
 
   watch(js, function(){
-    gulp.run('tjs');
+    gulp.run('js-task');
   });
   watch(css, function(){
-    gulp.run('tsass');
+    gulp.run('sass-task');
   });
   watch(components, function(){
-    gulp.run('tsass');
+    gulp.run('sass-task');
   });
   watch(img, function(){
-    gulp.run('timg');
+    gulp.run('img-task');
   });
 });

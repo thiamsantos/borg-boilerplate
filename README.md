@@ -1,9 +1,9 @@
 # gulp-template
 A boilerplate for [gulp](http://gulpjs.com/) with HTML5 and [MaterializeCSS](http://materializecss.com/).
 
-## Installation
+## How to use
 To use it, you first need to have [nodejs](https://nodejs.org/en/) installed.
-After that you must install the dependencies.
+Next that you must install the dependencies.
 Than just start the gulp e be happy.
 
 Run:
