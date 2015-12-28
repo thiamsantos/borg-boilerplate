@@ -1,13 +1,12 @@
 var gulp = require('gulp');
-var concat = require('gulp-concat');
-var size = require('gulp-filesize');
 var imagemin = require('gulp-imagemin');
-var rename = require('gulp-rename');
 var sass =  require('gulp-sass');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
+var include = require('gulp-include');
+var pngquant = require('imagemin-pngquant');
 
-var js = "./src/js/*.js";
+var js = "./src/js/main.js";
 var css = "./src/sass/*.scss";
 var components = "./src/sass/**";
 var img = "./src/img/**";
@@ -15,7 +14,7 @@ var img = "./src/img/**";
 // Javascript task
 gulp.task('js-task', function() {
   gulp.src(js)
-    .pipe(concat('./main.js'))
+    .pipe(include())
     .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 });
