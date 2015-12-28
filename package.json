@@ -17,5 +17,8 @@
     "gulp-sass": "^2.1.0",
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.5"
+  },
+  "dependencies": {
+    "imagemin-pngquant": "^4.2.0"
   }
 }

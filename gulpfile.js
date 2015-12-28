@@ -7,11 +7,10 @@ var sass =  require('gulp-sass');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 
-
 var js = "./src/js/*.js";
 var css = "./src/sass/*.scss";
-var components = "./src/sass/**/*.scss";
-var img = ["./src/img/*.png", "./src/img/*.jpg"];
+var components = "./src/sass/**";
+var img = "./src/img/**";
 
 // Javascript task
 gulp.task('js-task', function() {
@@ -25,7 +24,6 @@ gulp.task('js-task', function() {
 gulp.task('sass-task', function() {
   gulp.src(css)
     .pipe(sass({outputStyle: 'compressed'}))
-    .pipe(rename('main.css'))
     .pipe(gulp.dest('./dist/css'));
 });
 
@@ -34,8 +32,7 @@ gulp.task('img-task', function() {
   gulp.src(img)
     .pipe(imagemin({
       progressive: true,
-      svgoPlugins: [{removeViewBox: false}],
-      //use: [pngquant()]
+      use: [pngquant()]
     }))
     .pipe(gulp.dest('./dist/img'))
 });
