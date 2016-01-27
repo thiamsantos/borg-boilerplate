@@ -8,7 +8,8 @@ var include = require('gulp-include');
 var gutil = require('gulp-util');
 var jshint = require('gulp-jshint');
 var sourcemaps = require('gulp-sourcemaps');
-var connect = require('gulp-connect');
+var csscss = require('gulp-csscss');
+var browserSync = require('browser-sync').create();
 
 var mainjs = './src/js/main.js';
 var js = './src/js/**';
@@ -17,12 +18,15 @@ var components = './src/sass/**';
 var img = './src/img/**';
 
 // Server task
-gulp.task('server', function () {
-  connect.server({
-    root: ['.'],
-    port: 3000,
-    livereload: true
+gulp.task('browser-sync', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    }
   });
+
+  watch("./*.html").on('change', browserSync.reload);
+  watch("./dist/**").on('change', browserSync.reload);
 });
 
 // Javascript task
@@ -34,7 +38,8 @@ gulp.task('js-task', function() {
     .pipe(include())
     .pipe(uglify().on('error', gutil.log))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(browserSync.stream());
 });
 
 // Sass Task
@@ -42,8 +47,10 @@ gulp.task('sass-task', function() {
   gulp.src(css)
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(csscss())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist/css/'));
+    .pipe(gulp.dest('./dist/css/'))
+    .pipe(browserSync.stream());
 });
 
 // Images tasks
@@ -58,15 +65,15 @@ gulp.task('img-task', function() {
 
 // Default task
 gulp.task('default', function() {
-  gulp.run('js-task', 'sass-task', 'img-task', 'server');
+  gulp.run('js-task', 'sass-task', 'img-task', 'browser-sync');
 
   watch(js, function(){
-    gulp.run('js-task').pipe(connect.reload());
+    gulp.run('js-task');
   });
   watch(components, function(){
-    gulp.run('sass-task').pipe(connect.reload());
+    gulp.run('sass-task');
   });
   watch(img, function(){
-    gulp.run('img-task').pipe(connect.reload());
+    gulp.run('img-task');
   });
 });
