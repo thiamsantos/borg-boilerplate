@@ -47,11 +47,22 @@ gulp.task('sass-task', function() {
   gulp.src(css)
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./dist/css/'))
+    .pipe(browserSync.stream());
+});
+
+// Sass Task
+gulp.task('csscss-task', function() {
+  gulp.src(css)
+    .pipe(sourcemaps.init())
+    .pipe(sass({outputStyle: 'compressed'}))
     .pipe(csscss())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist/css/'))
     .pipe(browserSync.stream());
 });
+
 
 // Images tasks
 gulp.task('img-task', function() {
