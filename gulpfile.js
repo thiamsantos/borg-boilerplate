@@ -10,6 +10,7 @@ var jshint = require('gulp-jshint');
 var sourcemaps = require('gulp-sourcemaps');
 var csscss = require('gulp-csscss');
 var browserSync = require('browser-sync').create();
+var notify = require("gulp-notify");
 
 var mainjs = './src/js/main.js';
 var js = './src/js/**';
@@ -39,6 +40,7 @@ gulp.task('js-task', function() {
     .pipe(uglify().on('error', gutil.log))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/js'))
+    .pipe(notify("JS Compiled!"))
     .pipe(browserSync.stream());
 });
 
@@ -49,6 +51,7 @@ gulp.task('sass-task', function() {
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist/css/'))
+    .pipe(notify("Sass Compiled!"))
     .pipe(browserSync.stream());
 });
 
@@ -71,7 +74,8 @@ gulp.task('img-task', function() {
       progressive: true,
       use: [pngquant()]
     }))
-    .pipe(gulp.dest('./dist/img'));
+    .pipe(gulp.dest('./dist/img'))
+    .pipe(notify("Images minified!"));
 });
 
 // Default task
