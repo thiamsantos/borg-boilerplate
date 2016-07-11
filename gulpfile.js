@@ -1,21 +1,29 @@
-const gulp = require('gulp'),
-      stylus = require('gulp-stylus'),
-      rupture = require('rupture'),
-      concat = require('gulp-concat'),
-      uglify = require('gulp-uglify'),
-      plumber = require('gulp-plumber'),
+const autoprefixer = require('autoprefixer-stylus'),
       babel = require('gulp-babel'),
       browserSync = require('browser-sync').create(),
+      concat = require('gulp-concat'),
+      gulp = require('gulp'),
       imagemin = require('gulp-imagemin'),
-      reload = browserSync.reload;
+      plumber = require('gulp-plumber'),
+      reload = browserSync.reload,
+      rupture = require('rupture'),
+      runSequence = require('run-sequence'),
+      shell = require('gulp-shell'),
+      stylus = require('gulp-stylus'),
+      uglify = require('gulp-uglify');
 
 gulp.task('stylus', () =>
   gulp.src('./src/styl/main.styl')
     .pipe(plumber())
     .pipe(stylus({
-      use: [gridus(), rupture()]
+      compress: true,
+      use: [rupture(), autoprefixer()]
     }))
     .pipe(gulp.dest('./dist/css/')));
+
+gulp.task('stylint', shell.task([
+  'npm run stylint'
+]));
 
 gulp.task('js', () =>
   gulp.src('src/js/*.js')
@@ -48,4 +56,5 @@ gulp.task('watch', () => {
   gulp.watch('index.html').on('change', reload);
 });
 
-gulp.task('default', ['images', 'js', 'stylus', 'server', 'watch']);
+gulp.task('default', () =>
+  runSequence('stylint', ['images', 'js', 'stylus'], 'server', 'watch'));

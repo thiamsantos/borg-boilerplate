@@ -5,7 +5,8 @@
   "author": "Thiago Santos",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylint": "stylint ./src/styl/ -c .stylintrc"
   },
   "repository": {
     "type": "git",
@@ -13,14 +14,18 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer-stylus": "^0.9.4",
     "browser-sync": "^2.13.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-plumber": "^1.1.0",
+    "gulp-shell": "^0.5.2",
     "gulp-stylus": "^2.5.0",
     "gulp-uglify": "^1.5.4",
-    "rupture": "^0.6.1"
+    "run-sequence": "^1.2.2",
+    "rupture": "^0.6.1",
+    "stylint": "^1.5.6"
   }
 }
