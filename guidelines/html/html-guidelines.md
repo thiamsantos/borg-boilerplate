@@ -171,6 +171,7 @@ Always include these tags first in the head:
 Always include:
 - stylesheets at before closing head
 - scripts before closing body adding async parameter.
+
 ###### :heavy_check_mark: GOOD
 ```html
 <!DOCTYPE html>
