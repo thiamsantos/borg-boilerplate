@@ -4,6 +4,10 @@
 # Boilerplate
 A quick start for my projects.
 
+[ITCSS](http://itcss.io/) + [BEM](http://getbem.com/) + [Stylus](http://stylus-lang.com/) = :heart:
+
+[ES6](http://www.ecma-international.org/ecma-262/6.0/) + [rollup](http://rollupjs.org/) + [Babel](http://babeljs.io/) = :heart:
+
 ## NPM scripts
 
 ### Build
