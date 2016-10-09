@@ -1,31 +1,58 @@
 {
   "name": "boilerplate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "a quick start for my projects",
   "author": "Thiago Santos",
   "main": "main.js",
   "scripts": {
+    "precommit": "npm run lint",
+    "prepush": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stylint": "stylint ./src/styl/ -c .stylintrc"
+    "lint:js": "xo src/js/**/*.js",
+    "lint:styl": "stylint ./src/styl/ -c .stylintrc",
+    "lint": "npm run lint:js && npm run lint:styl",
+    "build:js": "rollup -c",
+    "build:styl": "stylus -c -u rupture -u autoprefixer-stylus src/styl/main.styl -o dist/css",
+    "build:img": "imagemin ./src/img/**/* --out-dir=./dist/img --plugin=pngquant --plugin=optipng --plugin=zopfli --plugin=jpeg-recompress --plugin=jpegoptim --plugin=mozjpeg --plugin=svgo",
+    "build": "npm run build:img && npm run build:styl && npm run build:js",
+    "watch:js": "rollup -c -w",
+    "watch:styl": "stylus -c -u rupture -u autoprefixer-stylus src/styl/main.styl -o dist/css -w"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/thiamsantos/boilerplate.git"
   },
+  "xo": {
+    "esnext": true,
+    "space": 2,
+    "semicolon": false,
+    "globals": [
+      "document",
+      "window"
+    ]
+  },
   "license": "ISC",
   "devDependencies": {
     "autoprefixer-stylus": "^0.9.4",
-    "browser-sync": "^2.13.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.6.0",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-shell": "^0.5.2",
-    "gulp-stylus": "^2.5.0",
-    "gulp-uglify": "^1.5.4",
-    "run-sequence": "^1.2.2",
+    "babel-core": "^6.17.0",
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-preset-es2015": "^6.16.0",
+    "husky": "^0.11.8",
+    "imagemin-cli": "^3.0.0",
+    "imagemin-jpeg-recompress": "^5.1.0",
+    "imagemin-jpegoptim": "^5.0.0",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-pngquant": "^5.0.0",
+    "imagemin-svgo": "^5.2.0",
+    "imagemin-zopfli": "^5.0.0",
+    "rollup": "^0.36.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^2.5.0",
     "rupture": "^0.6.1",
-    "stylint": "^1.5.6"
+    "stylint": "^1.5.6",
+    "stylus": "^0.54.5",
+    "xo": "^0.16.0"
   }
 }
