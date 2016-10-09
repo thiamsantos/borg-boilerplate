@@ -64,7 +64,7 @@ With the commands above, you have everything to start.
 ├── package.json
 ├── README.md
 ├── rollup.config.js
-├── src
+└── src
     ├── img
     |   └── example-jpeg.jpg
     |   └── example-png.png
@@ -75,22 +75,22 @@ With the commands above, you have everything to start.
     |   ├── vendor
     |   |   └── bar.js
     |   └── main.js
-    ├── styl
-    |   ├── base
-    |   |   └── global.styl
-    |   |   └── typography.styl
-    |   ├── components
-    |   |   └── button.styl
-    |   ├── generic
-    |   |   └── reset.styl
-    |   ├── objects
-    |   |   └── container.styl
-    |   ├── settings
-    |   |   └── colors.styl
-    |   |   └── variables.styl
-    |   ├── tools
-    |   |   └── mixins.styl
-    |   └── main.js
+    └── styl
+        ├── base
+        |   └── global.styl
+        |   └── typography.styl
+        ├── components
+        |   └── button.styl
+        ├── generic
+        |   └── reset.styl
+        ├── objects
+        |   └── container.styl
+        ├── settings
+        |   └── colors.styl
+        |   └── variables.styl
+        ├── tools
+        |   └── mixins.styl
+        └── main.js
 ```
 
 ## Plugins and Tools
