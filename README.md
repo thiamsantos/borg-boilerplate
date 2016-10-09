@@ -24,3 +24,6 @@ A quick start for my projects.
 - Lint: `npm run lint`
 - Lint JavaScript: `npm run lint:js`
 - Lint Stylus: `npm run lint:styl`
+
+## License
+[MIT License](https://opensource.org/licenses/MIT) &copy; Thiago Santos
