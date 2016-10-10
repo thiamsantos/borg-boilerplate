@@ -1,7 +1,10 @@
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![devDependency Status](https://david-dm.org/thiamsantos/boilerplate/dev-status.svg)](https://david-dm.org/thiamsantos/boilerplate#info=devDependencies)
 
-# Boilerplate
+![borg](https://github.com/thiamsantos/borg-boilerplate/blob/master/logo-borg.png)
+
+# Borg boilerplate
+> We are the Borg. Resistance is futile.
 This project uses:
 
 [ITCSS](http://itcss.io/) + [BEM](http://getbem.com/) + [Stylus](http://stylus-lang.com/) = :heart:
