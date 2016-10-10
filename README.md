@@ -1,7 +1,9 @@
+<p align="center">
+  <img src="https://github.com/thiamsantos/borg-boilerplate/raw/master/logo-borg2.png" width="100" alt="borg">
+</p>
+
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![devDependency Status](https://david-dm.org/thiamsantos/boilerplate/dev-status.svg)](https://david-dm.org/thiamsantos/boilerplate#info=devDependencies)
-
-![borg](https://github.com/thiamsantos/borg-boilerplate/blob/master/logo-borg2.png)
 
 # Borg boilerplate
 > We are the Borg. Resistance is futile.
