@@ -45,11 +45,15 @@ With the commands above, you have everything to start.
 - Build Stylus: `npm run build:styl`
 - Build Images: `npm run build:img`
 
+#### Test
+- Unit tests: `npm test`
+
 #### Server
 - Local server on localhost:3000 with automatically reload: `npm run serve`
 
 #### Watch files and build
 - Watch All and initialize server: `npm run watch`
+- Watch tests: `npm run watch:test`
 - Watch Images: `npm run watch:img`
 - Watch Javascript: `npm run watch:js`
 - Watch Stylus: `npm run watch:styl`
@@ -138,6 +142,9 @@ For local server with automatically reload it uses [browsersync](https://www.bro
 For precommit and prepush lint it uses husky along with:
 - [xo](https://github.com/sindresorhus/xo) for lint javascript code
 - [stylint](https://www.npmjs.com/package/stylint) for lint stylus code
+
+### Test
+For Unit tests it use [ava](https://github.com/avajs/ava).
 
 ## License
 [MIT License](https://opensource.org/licenses/MIT) &copy; Thiago Santos
