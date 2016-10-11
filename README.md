@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/thiamsantos/borg-boilerplate/raw/master/logo-borg.jpg" width="100" alt="borg">
+  <img src="https://github.com/thiamsantos/borg-boilerplate/raw/master/logo-borg.jpg" width="200" alt="borg">
 </p>
 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
