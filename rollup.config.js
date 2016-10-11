@@ -4,6 +4,15 @@ import uglify from 'rollup-plugin-uglify'
 export default {
   entry: 'src/js/main.js',
   format: 'iife',
-  plugins: [babel(), uglify()],
+  plugins: [babel({
+    "babelrc": false,
+    "presets": [
+      ["es2015", {
+        "modules": false
+        }
+      ]
+    ],
+    "plugins": ["external-helpers"]
+  }), uglify()],
   dest: 'dist/js/main.js'
 }

@@ -29,7 +29,7 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone https://github.com/thiamsantos/boilerplate.git
+$ git clone https://github.com/thiamsantos/borg-boilerplate.git
 $ cd boilerplate
 
 # install dependencies
@@ -70,33 +70,44 @@ With the commands above, you have everything to start.
 ├── package.json
 ├── README.md
 ├── rollup.config.js
-└── src
-    ├── img
-    |   └── example-jpeg.jpg
-    |   └── example-png.png
-    |   └── example-svg.svg
-    ├── js
-    |   ├── components
-    |   |   └── foo.js
-    |   ├── vendor
-    |   |   └── bar.js
-    |   └── main.js
-    └── styl
-        ├── base
-        |   └── global.styl
-        |   └── typography.styl
-        ├── components
-        |   └── button.styl
-        ├── generic
-        |   └── reset.styl
-        ├── objects
-        |   └── container.styl
-        ├── settings
-        |   └── colors.styl
-        |   └── variables.styl
-        ├── tools
-        |   └── mixins.styl
-        └── main.js
+├── dist
+|   ├── css
+|   |   └── main.css
+|   ├── img
+|   |   └── example-jpeg.jpg
+|   |   └── example-png.png
+|   |   └── example-svg.svg
+|   └── js
+|       └── main.js
+├── src
+|   ├── img
+|   |   └── example-jpeg.jpg
+|   |   └── example-png.png
+|   |   └── example-svg.svg
+|   ├── js
+|   |   ├── components
+|   |   |   └── foo.js
+|   |   ├── vendor
+|   |   |   └── bar.js
+|   |   └── main.js
+|   └── styl
+|       ├── base
+|       |   └── global.styl
+|       |   └── typography.styl
+|       ├── components
+|       |   └── button.styl
+|       ├── generic
+|       |   └── reset.styl
+|       ├── objects
+|       |   └── container.styl
+|       ├── settings
+|       |   └── colors.styl
+|       |   └── variables.styl
+|       ├── tools
+|       |   └── mixins.styl
+|       └── main.js
+└── test
+    └── foo.js
 ```
 
 ## Plugins and Tools
