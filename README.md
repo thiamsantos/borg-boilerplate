@@ -47,9 +47,13 @@ With the commands above, you have everything to start.
 
 #### Test
 - Unit tests: `npm test`
+- Coverage tests: `npm run test:coverage`
 
 #### Server
 - Local server on localhost:3000 with automatically reload: `npm run serve`
+
+#### Reporter
+- CSS complexity reporter: `npm run reporter:css`
 
 #### Watch files and build
 - Watch All and initialize server: `npm run watch`
@@ -144,7 +148,12 @@ For precommit and prepush lint it uses husky along with:
 - [stylint](https://www.npmjs.com/package/stylint) for lint stylus code
 
 ### Test
-For Unit tests it use [ava](https://github.com/avajs/ava).
+For Unit tests it uses [ava](https://github.com/avajs/ava) along with:
+- [browser-env](https://github.com/lukechilds/browser-env) for [browser testing](https://github.com/avajs/ava/blob/master/docs/recipes/browser-testing.md)
+- [nyc](https://github.com/istanbuljs/nyc) for code coverage
+
+### Reporter css
+For css complexity report it uses [parker](https://github.com/katiefenn/parker)
 
 ## License
 [MIT License](https://opensource.org/licenses/MIT) &copy; Thiago Santos
