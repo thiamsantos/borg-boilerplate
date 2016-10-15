@@ -8,7 +8,7 @@
     "prepush": "npm run lint && npm run test",
     "test": "ava --require babel-register test/**/*.js -S src/js/**/*.js",
     "test:coverage": "nyc npm test",
-    "lint:js": "xo src/js/**/*.js test/**/*.js",
+    "lint:js": "xo src/js/**/*.js test/**/*.js --no-semicolon --esnext --space --global=document --global=window --global=navigator",
     "lint:styl": "stylint ./src/styl/ -c .stylintrc",
     "lint": "npm run lint:js && npm run lint:styl",
     "build:js": "rollup -c",
@@ -26,15 +26,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/thiamsantos/borg-boilerplate.git"
-  },
-  "xo": {
-    "esnext": true,
-    "space": 2,
-    "semicolon": false,
-    "globals": [
-      "document",
-      "window"
-    ]
   },
   "license": "MIT",
   "devDependencies": {

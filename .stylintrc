@@ -20,7 +20,7 @@
   "cssLiteral": "never",
   "customProperties": [],
   "depthLimit": {
-    "expect": 4,
+    "expect": 3,
     "error": true
   },
   "duplicates": true,
