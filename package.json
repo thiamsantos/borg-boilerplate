@@ -1,12 +1,12 @@
 {
   "name": "borg-boilerplate",
   "version": "2.0.0",
-  "description": "A simple boilerplate for static projects using ES6, rollup, Stylus, PostCSS and NPM Scripts",
+  "description": "A simple boilerplate for static projects using ES6, rollup, tape, Stylus, PostCSS and NPM Scripts",
   "author": "Thiago Santos",
   "scripts": {
     "precommit": "npm run lint && npm run test",
     "prepush": "npm run lint && npm run test",
-    "test": "ava --require babel-register test/**/*.js -S src/js/**/*.js",
+    "test": "tape -r babel-register test/**/*.js | faucet",
     "test:coverage": "nyc npm test",
     "lint:js": "xo src/js/**/*.js test/**/*.js --no-semicolon --esnext --space --global=document --global=window --global=navigator",
     "lint:styl": "stylint ./src/styl/ -c .stylintrc",
@@ -16,7 +16,7 @@
     "build:img": "imagemin ./src/img/**/* --out-dir=./dist/img --plugin=pngquant --plugin=optipng --plugin=zopfli --plugin=jpeg-recompress --plugin=jpegoptim --plugin=mozjpeg --plugin=svgo",
     "build": "npm run build:img && npm run build:styl && npm run build:js",
     "watch": "run-p -cl watch:img watch:js watch:styl serve watch:test",
-    "watch:test": "ava --require babel-register test/**/*.js -S src/js/**/*.js -w",
+    "watch:test": "tape-watch -r babel-register test/**/*.js -p faucet",
     "watch:img": "onchange \"src/img/**/*\" -i -- npm run build:img",
     "watch:js": "rollup -c -w",
     "watch:styl": "stylus -c -u rupture -u poststylus --with \"['autoprefixer', 'css-mqpacker']\" src/styl/main.styl -o dist/css -w",
@@ -30,7 +30,6 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.5.0",
-    "ava": "^0.16.0",
     "babel-core": "^6.17.0",
     "babel-plugin-external-helpers": "^6.8.0",
     "babel-preset-es2015": "^6.16.0",
@@ -38,6 +37,7 @@
     "browser-env": "^2.0.11",
     "browser-sync": "^2.17.1",
     "css-mqpacker": "^5.0.1",
+    "faucet": "0.0.1",
     "husky": "^0.11.8",
     "imagemin-cli": "^3.0.0",
     "imagemin-jpeg-recompress": "^5.1.0",
@@ -54,11 +54,15 @@
     "poststylus": "^0.2.3",
     "rollup": "^0.36.1",
     "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "rollup-watch": "^2.5.0",
     "rupture": "^0.6.1",
     "stylint": "^1.5.6",
     "stylus": "^0.54.5",
+    "tape": "^4.6.2",
+    "tape-watch": "^2.2.3",
     "xo": "^0.16.0"
   }
 }

@@ -29,8 +29,8 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone https://github.com/thiamsantos/borg-boilerplate.git
-$ cd boilerplate
+$ git clone https://github.com/thiamsantos/borg-boilerplate.git your-project
+$ cd your-project
 
 # install dependencies
 $ npm install
@@ -143,8 +143,8 @@ For minify images it uses [imagemin](https://github.com/imagemin/imagemin) along
 For local server with automatically reload it uses [browsersync](https://www.browsersync.io/).
 
 ### Test
-For Unit tests it uses [ava](https://github.com/avajs/ava) along with:
-- [browser-env](https://github.com/lukechilds/browser-env) for [browser testing](https://github.com/avajs/ava/blob/master/docs/recipes/browser-testing.md)
+For Unit tests it uses [tape](https://github.com/substack/tape) along with:
+- [browser-env](https://github.com/lukechilds/browser-env) for [browser testing](https://github.com/avajs/ava/blob/master/docs/recipes/browser-testing.md#enjoy)
 - [nyc](https://github.com/istanbuljs/nyc) for code coverage
 
 ### Reporter css
