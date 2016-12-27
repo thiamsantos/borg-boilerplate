@@ -28,6 +28,10 @@
     "url": "https://github.com/thiamsantos/borg-boilerplate.git"
   },
   "license": "MIT",
+  "babel": {
+    "presets": ["es2015"],
+    "sourceMaps": "inline"
+  },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
     "babel-core": "^6.17.0",
