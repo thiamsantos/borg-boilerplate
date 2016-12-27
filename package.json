@@ -6,7 +6,7 @@
   "scripts": {
     "precommit": "npm run lint && npm run test",
     "prepush": "npm run lint && npm run test",
-    "test": "tape -r babel-register test/**/*.js | faucet",
+    "test": "tape -r babel-register test/**/*.js | tap-diff",
     "test:coverage": "nyc npm test",
     "lint:js": "xo src/js/**/*.js test/**/*.js --no-semicolon --esnext --space --global=document --global=window --global=navigator",
     "lint:styl": "stylint ./src/styl/ -c .stylintrc",
@@ -16,7 +16,7 @@
     "build:img": "imagemin ./src/img/**/* --out-dir=./dist/img --plugin=pngquant --plugin=optipng --plugin=zopfli --plugin=jpeg-recompress --plugin=jpegoptim --plugin=mozjpeg --plugin=svgo",
     "build": "npm run build:img && npm run build:styl && npm run build:js",
     "watch": "run-p -cl watch:img watch:js watch:styl serve watch:test",
-    "watch:test": "tape-watch -r babel-register test/**/*.js -p faucet",
+    "watch:test": "tape-watch -r babel-register test/**/*.js -p tap-diff",
     "watch:img": "onchange \"src/img/**/*\" -i -- npm run build:img",
     "watch:js": "rollup -c -w",
     "watch:styl": "stylus -c -u rupture -u poststylus --with \"['autoprefixer', 'css-mqpacker']\" src/styl/main.styl -o dist/css -w",
@@ -37,7 +37,6 @@
     "browser-env": "^2.0.11",
     "browser-sync": "^2.17.1",
     "css-mqpacker": "^5.0.1",
-    "faucet": "0.0.1",
     "husky": "^0.11.8",
     "imagemin-cli": "^3.0.0",
     "imagemin-jpeg-recompress": "^5.1.0",
@@ -61,6 +60,7 @@
     "rupture": "^0.6.1",
     "stylint": "^1.5.6",
     "stylus": "^0.54.5",
+    "tap-diff": "^0.1.1",
     "tape": "^4.6.2",
     "tape-watch": "^2.2.3",
     "xo": "^0.17.0"
