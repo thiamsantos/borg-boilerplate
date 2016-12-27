@@ -4,23 +4,26 @@
   "description": "A simple boilerplate for static projects using ES6, rollup, tape, Stylus, PostCSS and NPM Scripts",
   "author": "Thiago Santos",
   "scripts": {
-    "precommit": "npm run lint && npm run test",
+    "precommit": "npm run lint",
     "prepush": "npm run lint && npm run test",
     "test": "tape -r babel-register test/**/*.js | tap-diff",
-    "test:coverage": "nyc npm test",
+    "coverage": "nyc npm test",
     "lint:js": "xo src/js/**/*.js test/**/*.js --no-semicolon --esnext --space --global=document --global=window --global=navigator",
     "lint:styl": "stylint ./src/styl/ -c .stylintrc",
-    "lint": "npm run lint:js && npm run lint:styl",
+    "lint:pug": "pug-lint -c .puglintrc src/pug/",
+    "lint": "run-s lint:js lint:styl lint:pug",
     "build:js": "rollup -c",
     "build:styl": "stylus -c -u rupture -u poststylus --with \"['autoprefixer', 'css-mqpacker']\" src/styl/main.styl -o dist/css",
     "build:img": "imagemin ./src/img/**/* --out-dir=./dist/img --plugin=pngquant --plugin=optipng --plugin=zopfli --plugin=jpeg-recompress --plugin=jpegoptim --plugin=mozjpeg --plugin=svgo",
-    "build": "npm run build:img && npm run build:styl && npm run build:js",
-    "watch": "run-p -cl watch:img watch:js watch:styl serve watch:test",
+    "build:pug": "pug src/pug/index.pug -o dist/ -O src/pug/data.js",
+    "build": "run-s build:img build:styl build:js build:pug",
     "watch:test": "tape-watch -r babel-register test/**/*.js -p tap-diff",
     "watch:img": "onchange \"src/img/**/*\" -i -- npm run build:img",
-    "watch:js": "rollup -c -w",
-    "watch:styl": "stylus -c -u rupture -u poststylus --with \"['autoprefixer', 'css-mqpacker']\" src/styl/main.styl -o dist/css -w",
-    "serve": "browser-sync start -s --files \"dist/css/**/*, **/*.html\"",
+    "watch:js": "npm run build:js -- -w",
+    "watch:styl": "npm run build:styl -- -w",
+    "watch:pug": "npm run build:pug -- -w",
+    "serve": "browser-sync start -s dist --files \"dist/css/**/*\"",
+    "watch": "run-p -c watch:img watch:pug watch:js watch:styl serve watch:test",
     "reporter:css": "parker dist/css/main.css"
   },
   "repository": {
@@ -29,7 +32,9 @@
   },
   "license": "MIT",
   "babel": {
-    "presets": ["es2015"],
+    "presets": [
+      "es2015"
+    ],
     "sourceMaps": "inline"
   },
   "devDependencies": {
@@ -55,6 +60,8 @@
     "onchange": "^3.0.2",
     "parker": "0.0.10",
     "poststylus": "^0.2.3",
+    "pug-cli": "^1.0.0-alpha6",
+    "pug-lint": "^2.3.0",
     "rollup": "^0.36.1",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^5.0.5",

@@ -1,9 +1,6 @@
-<p align="center">
-  <img src="https://github.com/thiamsantos/borg-boilerplate/raw/master/logo-borg.jpg" width="200" alt="borg">
-</p>
+<img src="https://cdn.rawgit.com/thiamsantos/borg-boilerplate/master/logo-borg.jpg" width="200" alt="borg" align="right">
 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![devDependency Status](https://david-dm.org/thiamsantos/boilerplate/dev-status.svg)](https://david-dm.org/thiamsantos/boilerplate#info=devDependencies)
 
 # Borg boilerplate
 > We are the Borg. Resistance is futile.
@@ -13,6 +10,10 @@ This project uses:
 [ITCSS](http://itcss.io/) + [BEM](http://getbem.com/) + [Stylus](http://stylus-lang.com/) = :heart:
 
 [ES6](http://www.ecma-international.org/ecma-262/6.0/) + [rollup](http://rollupjs.org/) + [Babel](http://babeljs.io/) = :heart:
+
+[Pug](https://github.com/pugjs/pug) = :heart:
+
+[tape](https://github.com/substack/tape) + [tap-diff](https://github.com/axross/tap-diff) + [istanbul](https://istanbul.js.org/) = :heart:
 
 ## NPM scripts
 It uses npm scripts as build tool.
@@ -44,10 +45,11 @@ With the commands above, you have everything to start.
 - Build JavaScript: `npm run build:js`
 - Build Stylus: `npm run build:styl`
 - Build Images: `npm run build:img`
+- Build Pug: `npm run build:pug`
 
 #### Test
 - Unit tests: `npm test`
-- Coverage tests: `npm run test:coverage`
+- Coverage tests: `npm run coverage`
 
 #### Server
 - Local server on localhost:3000 with automatically reload: `npm run serve`
@@ -61,11 +63,13 @@ With the commands above, you have everything to start.
 - Watch Images: `npm run watch:img`
 - Watch Javascript: `npm run watch:js`
 - Watch Stylus: `npm run watch:styl`
+- Watch Pug: `npm run watch:pug`
 
 #### Lint
 - Lint: `npm run lint`
 - Lint JavaScript: `npm run lint:js`
 - Lint Stylus: `npm run lint:styl`
+- Lint Pug: `npm run lint:pug`
 
 ### Files Structure
 ```sh
@@ -158,297 +162,11 @@ For precommit and prepush lint it uses husky along with:
 #### Rules enforced on javascript code
 It's enforced almost every that [xo comes by default](https://github.com/sindresorhus/xo). The only rules overriden are:
 
-##### Semicolons
-Only use semicolons when [strictly necessary](http://standardjs.com/rules.html#semicolons).
-
-##### Indentation
-Ident using 2 spaces.
+- Semicolons: Only use semicolons when [strictly necessary](http://standardjs.com/rules.html#semicolons).
+- Indentation: Indent using 2 spaces.
 
 #### Rules enforced on stylus code
-##### Brackets
-Never use brackets when declaring selectors.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  display block
-  padding 10em
-```
-
-:x: Bad
-```stylus
-.bad {
-  display block
-  padding 10em
-}
-```
-
-##### Colons
-Never use colons.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  display block
-  padding 10em
-```
-
-:x: Bad
-```stylus
-.bad
-  display: block
-  padding: 10em
-```
-
-##### Colors
-Always use colors inside variables.
-
-:heavy_check_mark: Good
-```stylus
-$primary-color = #000
-
-.good
-  color $primary-color
-  display block
-```
-
-:x: Bad
-```stylus
-.bad
-  color #000
-  display block
-```
-
-##### Comment Space
-Always put a space after line comments.
-
-:heavy_check_mark: Good
-```stylus
-// Good comment
-```
-
-:x: Bad
-```stylus
-//Bad comment
-```
-
-##### Depth Limit
-Never indent selectors more than 3 times. Pseudo selectors like &:first-child or &:hover won't count towards the limit.
-
-:heavy_check_mark: Good
-```stylus
-.list
-  // some properties
-
-  &__item
-    // some properties
-
-    &--highlighted
-      // some properties
-```
-
-:x: Bad
-```stylus
-.list
-  // some properties
-
-  &__item
-    // some properties
-
-    &__media
-      // some properties
-
-      &--highlighted
-        // some properties
-```
-
-##### Extends
-Always extend a placeholder using `@extends` instead of ``@extend`.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  @extends $some-placeholder
-```
-
-:x: Bad
-```stylus
-.bad
-  @extend $some-placeholder
-```
-
-##### Indentation
-
-:heavy_check_mark: Good
-```stylus
-.good
-  display block
-  padding 10em
-```
-
-:x: Bad
-```stylus
-.good
-    display block
-    padding 10em
-```
-
-##### Leading Zero
-Never use unnecessary leading zeroes on decimal points.
-
-:heavy_check_mark: Good
-```stylus
-$primary-color = rgba(0,0,0,.87)
-```
-
-:x: Bad
-```stylus
-$primary-color = rgba(0,0,0,0.87)
-```
-
-##### None Value
-Always use `0` instead of `none`.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  border 0
-```
-
-:x: Bad
-```stylus
-.bad
-  border none
-```
-
-##### Paren Space
-Never use extra spaces inside parens.
-
-:heavy_check_mark: Good
-```stylus
-my-mixin($my-param)
-```
-
-:x: Bad
-```stylus
-my-mixin( $my-param )
-```
-
-##### Placeholders
-Always extend placeholders vars.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  @extends $placeholder
-```
-
-:x: Bad
-```stylus
-.bad
-  @extends .some-class
-```
-
-##### Quotes
-Always use single quotes.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  font-family 'Roboto', sans-serif
-```
-
-:x: Bad
-```stylus
-.bad
-  font-family "Roboto", sans-serif
-```
-
-##### Semicolons
-Never use semicolons.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  display block
-  padding 10em
-```
-
-:x: Bad
-```stylus
-.bad
-  display block;
-  padding 10em;
-```
-
-##### Property Order
-Sort properties in alphabetical order.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  display block
-  left 0
-  position relative
-  text-align center
-  top 0
-```
-
-:x: Bad
-```stylus
-.bad
-  position relative
-  top 0
-  left 0
-  text-align center
-  display block
-```
-
-##### Stacked Properties
-Always put properties on new lines.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  display block
-```
-
-:x: Bad
-```stylus
-.bad {display: block}
-```
-
-##### Variables
-Always name a variable with the lowercase-dash convention and prefix it with
-a dollar.
-
-:heavy_check_mark: Good
-```stylus
-$gutter-width = 10em
-$cols-number = 12
-```
-
-:x: Bad
-```stylus
-$gutterWidth = 10em
-cols-number = 12
-```
-
-##### Zero Units
-Never use units after `0` values.
-
-:heavy_check_mark: Good
-```stylus
-.good
-  margin 0
-```
-
-:x: Bad
-```stylus
-.bad
-  margin 0px
-```
-
+Follow my [stylus code style](https://github.com/thiamsantos/stylus-code-style).
 
 ## License
 [MIT License](https://opensource.org/licenses/MIT) &copy; Thiago Santos
