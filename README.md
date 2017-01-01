@@ -1,27 +1,20 @@
 <img src="https://cdn.rawgit.com/thiamsantos/borg-boilerplate/master/logo-borg.jpg" width="200" alt="borg" align="right">
 
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-
 # Borg boilerplate
 > We are the Borg. Resistance is futile.
 
-This project uses:
+This project uses [ES6](http://www.ecma-international.org/ecma-262/6.0/), [Stylus](http://stylus-lang.com/), [rollup](http://rollupjs.org/), [Pug](https://github.com/pugjs/pug), [NPM Scripts](https://docs.npmjs.com/misc/scripts) and [tape](https://github.com/substack/tape).
 
-[ITCSS](http://itcss.io/) + [BEM](http://getbem.com/) + [Stylus](http://stylus-lang.com/) = :heart:
+## Table of contents
 
-[ES6](http://www.ecma-international.org/ecma-262/6.0/) + [rollup](http://rollupjs.org/) + [Babel](http://babeljs.io/) = :heart:
-
-[Pug](https://github.com/pugjs/pug) = :heart:
-
-[tape](https://github.com/substack/tape) + [tap-diff](https://github.com/axross/tap-diff) + [istanbul](https://istanbul.js.org/) = :heart:
-
-## NPM scripts
-It uses npm scripts as build tool.
-
-For know why npm and not [gulp](http://gulpjs.com/), [grunt](http://gruntjs.com/) or [brocoli](http://broccolijs.com/) see:
-- [Why npm Scripts?](https://css-tricks.com/why-npm-scripts/)
-- [Why we should stop using Grunt & Gulp](https://www.keithcirkel.co.uk/why-we-should-stop-using-grunt/)
-- [Why I Left Gulp and Grunt for npm Scripts](https://medium.freecodecamp.com/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.2kksm6vo8)
+- [Getting Started](#getting-started)
+- [Tasks](#tasks)
+- [Plugins and Tools](#plugins-and-tools)
+- [Coding Standards](#coding-standards)
+- [Folders and Files](#folders-and-files)
+- [Contribute](#contribute)
+- [Credits](#credits)
+- [License](#license)
 
 ## Getting Started
 ### Installation
@@ -33,94 +26,43 @@ First of all, install the dependencies to run this boilerplate.
 $ git clone https://github.com/thiamsantos/borg-boilerplate.git your-project
 $ cd your-project
 
-# install dependencies
+# Install dependencies
 $ npm install
 ```
 
-### Commands
+## Tasks
 With the commands above, you have everything to start.
 
-#### Build
-- Build All: `npm run build`
-- Build JavaScript: `npm run build:js`
-- Build Stylus: `npm run build:styl`
-- Build Images: `npm run build:img`
-- Build Pug: `npm run build:pug`
+### Build
+- `npm run build`: Build All
+- `npm run build:js`: Build JavaScript
+- `npm run build:styl`: Build Stylus
+- `npm run build:img`: Build Images
+- `npm run build:pug`: Build Pug
 
-#### Test
-- Unit tests: `npm test`
-- Coverage tests: `npm run coverage`
+### Watch files and build
+- `npm run watch`: Watch All and initialize server
+- `npm run watch:test`: Watch tests
+- `npm run watch:img`: Watch Images
+- `npm run watch:js`: Watch Javascript
+- `npm run watch:styl`: Watch Stylus
+- `npm run watch:pug`: Watch Pug
 
-#### Server
-- Local server on localhost:3000 with automatically reload: `npm run serve`
+### Lint
+- `npm run lint`: Lint
+- `npm run lint:js`: Lint JavaScript
+- `npm run lint:styl`: Lint Stylus
+- `npm run lint:pug`: Lint Pug
 
-#### Reporter
-- CSS complexity reporter: `npm run reporter:css`
+### Test
+- `npm test`: Unit tests
+- `npm run coverage`: Coverage tests
 
-#### Watch files and build
-- Watch All and initialize server: `npm run watch`
-- Watch tests: `npm run watch:test`
-- Watch Images: `npm run watch:img`
-- Watch Javascript: `npm run watch:js`
-- Watch Stylus: `npm run watch:styl`
-- Watch Pug: `npm run watch:pug`
+### Server
+- `npm run serve`: Local server on localhost:3000 with automatically reload
 
-#### Lint
-- Lint: `npm run lint`
-- Lint JavaScript: `npm run lint:js`
-- Lint Stylus: `npm run lint:styl`
-- Lint Pug: `npm run lint:pug`
-
-### Files Structure
-```sh
-├── .babelrc
-├── .editorconfig
-├── .gitignore
-├── .stylintrc
-├── index.html
-├── LICENSE.md
-├── package.json
-├── README.md
-├── rollup.config.js
-├── dist
-|   ├── css
-|   |   └── main.css
-|   ├── img
-|   |   └── example-jpeg.jpg
-|   |   └── example-png.png
-|   |   └── example-svg.svg
-|   └── js
-|       └── main.js
-├── src
-|   ├── img
-|   |   └── example-jpeg.jpg
-|   |   └── example-png.png
-|   |   └── example-svg.svg
-|   ├── js
-|   |   ├── components
-|   |   |   └── foo.js
-|   |   ├── vendor
-|   |   |   └── bar.js
-|   |   └── main.js
-|   └── styl
-|       ├── base
-|       |   └── global.styl
-|       |   └── typography.styl
-|       ├── components
-|       |   └── button.styl
-|       ├── generic
-|       |   └── reset.styl
-|       ├── objects
-|       |   └── container.styl
-|       ├── settings
-|       |   └── colors.styl
-|       |   └── variables.styl
-|       ├── tools
-|       |   └── mixins.styl
-|       └── main.js
-└── test
-    └── foo.js
-```
+### Reporter
+- `npm run reporter:css`: CSS complexity reporter
 
 ## Plugins and Tools
 Plugins that this project implements.
@@ -159,6 +101,8 @@ For precommit and prepush lint it uses husky along with:
 - [xo](https://github.com/sindresorhus/xo) for lint javascript code
 - [stylint](https://www.npmjs.com/package/stylint) for lint stylus code
 
+## Coding Standards
+
 #### Rules enforced on javascript code
 It's enforced almost every that [xo comes by default](https://github.com/sindresorhus/xo). The only rules overriden are:
 
@@ -166,7 +110,70 @@ It's enforced almost every that [xo comes by default](https://github.com/sindres
 - Indentation: Indent using 2 spaces.
 
 #### Rules enforced on stylus code
-Follow my [stylus code style](https://github.com/thiamsantos/stylus-code-style).
+Follow my own [stylus code style](https://github.com/thiamsantos/stylus-code-style).
+
+## Folders and Files
+```sh
+├── .editorconfig
+├── .gitignore
+├── .puglintrc
+├── .stylintrc
+├── LICENSE.md
+├── package.json
+├── README.md
+├── rollup.config.js
+├── src
+|   ├── img
+|   |   └── example-jpeg.jpg
+|   |   └── example-png.png
+|   |   └── example-svg.svg
+|   ├── js
+|   |   ├── components
+|   |   |   └── foo.js
+|   |   ├── vendor
+|   |   |   └── bar.js
+|   |   └── main.js
+|   ├── pug
+|   |   └── data.js
+|   |   └── index.pug
+|   ├── static
+|   |   └── favicon.ico
+|   |   └── robots.txt
+|   |   └── sitemap.xml
+|   └── styl
+|       ├── base
+|       |   └── global.styl
+|       |   └── typography.styl
+|       ├── components
+|       |   └── button.styl
+|       ├── generic
+|       |   └── reset.styl
+|       ├── objects
+|       |   └── container.styl
+|       ├── settings
+|       |   └── colors.styl
+|       |   └── variables.styl
+|       ├── tools
+|       |   └── mixins.styl
+|       └── main.js
+└── test
+    └── foo.js
+```
+
+Those folders and files will change during the project.
+
+## Contribute
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request.
+
+**After your pull request is merged**, you can safely delete your branch.
+
+## Credits
+This boilerplate was inspired by the incredible [Kratos Boilerplate](https://github.com/LFeh/kratos-boilerplate) and [Qualy Boilerplate](https://github.com/Qualy-org/qualy-front).
 
 ## License
-[MIT License](https://opensource.org/licenses/MIT) &copy; Thiago Santos
+[MIT License](LICENSE.md) &copy; Thiago Santos
