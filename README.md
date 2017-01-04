@@ -10,7 +10,7 @@ This project uses [ES6](http://www.ecma-international.org/ecma-262/6.0/), [Stylu
 - [Getting Started](#getting-started)
 - [Tasks](#tasks)
 - [Plugins and Tools](#plugins-and-tools)
-- [Coding Standards](#coding-standards)
+- [Code Standards](#code-standards)
 - [Folders and Files](#folders-and-files)
 - [Contribute](#contribute)
 - [Credits](#credits)
@@ -65,19 +65,25 @@ With the commands above, you have everything to start.
 - `npm run reporter:css`: CSS complexity reporter
 
 ## Plugins and Tools
-Plugins that this project implements.
+Plugins that this boilerplate implements.
 
-### Styles
-For build styles it uses [Stylus](http://stylus-lang.com/) along with:
+### CSS
+For build CSS it uses [Stylus](http://stylus-lang.com/) as pre-processor along with:
 - [rupture](http://jescalan.github.io/rupture/) for responsive utilities
 - [poststylus](https://github.com/seaneking/poststylus) for adapte any [PostCSS](http://postcss.org/) plugin with stylus
 - [autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixes
 - [css-mqpacker](https://github.com/hail2u/node-css-mqpacker) for combine CSS media query rules and add to the end of the file
 
-### Scripts
-For build scripts it uses [rollup](http://rollupjs.org/) as module bundler along with:
+### JavaScript
+For build JavaScript it uses [rollup](http://rollupjs.org/) as module bundler along with:
 - [babel](https://babeljs.io/) for transpile [ES6](http://www.ecma-international.org/ecma-262/6.0/) code
 - [uglify](https://github.com/mishoo/UglifyJS) for minify the code
+
+### Test
+For Unit tests it uses [tape](https://github.com/substack/tape) as test-runner along with:
+- [browser-env](https://github.com/lukechilds/browser-env) for [browser testing](https://github.com/avajs/ava/blob/master/docs/recipes/browser-testing.md#enjoy)
+- [nyc](https://github.com/istanbuljs/nyc) for code coverage
+- [tap-diff](https://github.com/axross/tap-diff) for beautiful reporters
 
 ### Images
 For minify images it uses [imagemin](https://github.com/imagemin/imagemin) along with:
@@ -88,29 +94,28 @@ For minify images it uses [imagemin](https://github.com/imagemin/imagemin) along
 ### Server
 For local server with automatically reload it uses [browsersync](https://www.browsersync.io/).
 
-### Test
-For Unit tests it uses [tape](https://github.com/substack/tape) along with:
-- [browser-env](https://github.com/lukechilds/browser-env) for [browser testing](https://github.com/avajs/ava/blob/master/docs/recipes/browser-testing.md#enjoy)
-- [nyc](https://github.com/istanbuljs/nyc) for code coverage
-
 ### Reporter css
 For css complexity report it uses [parker](https://github.com/katiefenn/parker)
 
 ### Lint
-For precommit and prepush lint it uses husky along with:
+For precommit and prepush lint it uses [husky](https://github.com/typicode/husky) along with:
 - [xo](https://github.com/sindresorhus/xo) for lint javascript code
 - [stylint](https://www.npmjs.com/package/stylint) for lint stylus code
+- [pug-lint](https://github.com/pugjs/pug-lint) for lint pug code
 
-## Coding Standards
+## Code Standards
 
-#### Rules enforced on javascript code
+### JavaScript
 It's enforced almost every that [xo comes by default](https://github.com/sindresorhus/xo). The only rules overriden are:
 
 - Semicolons: Only use semicolons when [strictly necessary](http://standardjs.com/rules.html#semicolons).
 - Indentation: Indent using 2 spaces.
 
-#### Rules enforced on stylus code
+### Stylus
 Follow my own [stylus code style](https://github.com/thiamsantos/stylus-code-style).
+
+### Pug
+Follow my own [pug code style](https://github.com/thiamsantos/pug-code-style).
 
 ## Folders and Files
 ```sh
@@ -176,4 +181,4 @@ Those folders and files will change during the project.
 This boilerplate was inspired by the incredible [Kratos Boilerplate](https://github.com/LFeh/kratos-boilerplate) and [Qualy Boilerplate](https://github.com/Qualy-org/qualy-front).
 
 ## License
-[MIT License](LICENSE.md) &copy; Thiago Santos
+[MIT License](LICENSE.md) &copy; [Thiago Santos](https://thiamsantos.github.io/)

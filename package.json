@@ -1,7 +1,7 @@
 {
   "name": "borg-boilerplate",
   "version": "2.0.0",
-  "description": "A simple boilerplate for static projects using ES6, rollup, tape, Stylus, PostCSS and NPM Scripts",
+  "description": "A simple boilerplate for static projects using ES6, rollup, pug, tape, Stylus, PostCSS and NPM Scripts",
   "author": "Thiago Santos",
   "scripts": {
     "precommit": "npm run lint",
