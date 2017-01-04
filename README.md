@@ -28,6 +28,9 @@ $ cd your-project
 
 # Install dependencies
 $ npm install
+
+# Create dist folders
+$ npm run build:folders
 ```
 
 ## Tasks
@@ -35,6 +38,8 @@ With the commands above, you have everything to start.
 
 ### Build
 - `npm run build`: Build All
+- `npm run build:folders`: Create dist folders
+- `npm run build:static`: Build static files
 - `npm run build:js`: Build JavaScript
 - `npm run build:styl`: Build Stylus
 - `npm run build:img`: Build Images
