@@ -1,6 +1,8 @@
 <img src="https://cdn.rawgit.com/thiamsantos/borg-boilerplate/master/logo-borg.jpg" width="200" alt="borg" align="right">
 
 # Borg boilerplate
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/thiamsantos/borg-boilerplate.svg)](https://greenkeeper.io/)
 > We are the Borg. Resistance is futile.
 
 This project uses [ES6](http://www.ecma-international.org/ecma-262/6.0/), [Stylus](http://stylus-lang.com/), [rollup](http://rollupjs.org/), [Pug](https://github.com/pugjs/pug), [NPM Scripts](https://docs.npmjs.com/misc/scripts) and [tape](https://github.com/substack/tape).
